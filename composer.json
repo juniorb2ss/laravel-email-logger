@@ -1,16 +1,40 @@
 {
-    "name": "Juniorb2ss/laravel-email-logger",
+    "name": "juniorb2ss/laravel-email-logger",
     "description": "Possible to armazenate all emails send by application in Redis, Database, Elasticsearch or push to SNS.",
     "keywords": ["laravel", "email", "logger"],
     "license": "MIT",
     "type": "package",
+    "keywords": [
+        "email",
+        "phpunit",
+        "laravel",
+        "log"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos Eduardo",
+            "email": "juniorb2ss@gmail.com"
+        }
+    ],
     "require": {
-        "illuminate/support": "~5.0"
+        "php": ">=5.5.0",
+        "illuminate/support": "~5.1.10|5.2.*|5.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0|~5.0"
     },
     "autoload": {
-        "psr-0": {
-            "Juniorb2ss\\LaravelEmailLogger\\": "src/"
+        "psr-4": {
+            "juniorb2ss\\LaravelEmailLogger\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "autoload-dev": {
+        "psr-4": {
+            "juniorb2ss\\LaravelEmailLogger\\": "tests"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
 }
