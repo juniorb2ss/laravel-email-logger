@@ -1,5 +1,5 @@
 <?php
-namespace Juniorb2ss\LaravelEmailLogger\Providers;
+namespace juniorb2ss\LaravelEmailLogger\Providers;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;

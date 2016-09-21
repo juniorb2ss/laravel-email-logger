@@ -1,4 +1,4 @@
-<?php namespace Juniorb2ss\LaravelEmailLogger;
+<?php namespace juniorb2ss\LaravelEmailLogger;
 
 use Illuminate\Mail\Events\MessageSending;
 
