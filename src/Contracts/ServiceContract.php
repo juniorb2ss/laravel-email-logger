@@ -1,4 +1,4 @@
-<?php namespace juniorb2ss\EmailLogger\Contracts;
+<?php namespace juniorb2ss\LaravelEmailLogger\Contracts;
 
 /**
  *

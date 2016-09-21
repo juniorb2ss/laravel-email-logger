@@ -1,6 +1,6 @@
 <?php namespace juniorb2ss\LaravelEmailLogger\Providers;
 
-use juniorb2ss\EmailLogger\Contracts\ServiceContract;
+use juniorb2ss\LaravelEmailLogger\Contracts\ServiceContract;
 
 /**
  *

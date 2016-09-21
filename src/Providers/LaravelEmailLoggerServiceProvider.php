@@ -3,8 +3,8 @@
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\ServiceProvider;
-use juniorb2ss\EmailLogger\Services\ServiceManager;
 use juniorb2ss\LaravelEmailLogger\EmailLoggerListener;
+use juniorb2ss\LaravelEmailLogger\Services\ServiceManager;
 
 class LaravelEmailLoggerServiceProvider extends ServiceProvider {
 	/**
@@ -53,7 +53,7 @@ class LaravelEmailLoggerServiceProvider extends ServiceProvider {
 	 * {@inheritdoc}
 	 */
 	public function register() {
-		$this->app->singleton('juniorb2ss\EmailLogger\Services\ServiceManager', function ($app) {
+		$this->app->singleton('juniorb2ss\LaravelEmailLogger\Services\ServiceManager', function ($app) {
 			return new ServiceManager($app);
 		});
 	}
