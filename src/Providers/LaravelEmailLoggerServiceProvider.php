@@ -4,7 +4,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Mail\Events\MessageSending;
-use Juniorb2ss\LaravelEmailLogger\EmailLoggerListener;
+use juniorb2ss\LaravelEmailLogger\EmailLoggerListener;
 
 class LaravelEmailLoggerServiceProvider extends EventServiceProvider {
 	/**
