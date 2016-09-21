@@ -44,14 +44,6 @@ interface ServiceContract {
      * @return \Illuminate\Contracts\Broadcasting\Broadcaster
      */
     protected function get($name);
-    
-    /**
-     * Create an instance of the driver.
-     *
-     * @param  array  $config
-     * @return \Illuminate\Database\Eloquent\Model
-     */
-    protected function createEloquentDriver(array $configs);
 
      /**
      * Get the connection configuration.
