@@ -1,6 +1,6 @@
 # Laravel Email Logger
 
-Possible to armazenate all emails send by application in Redis, Database or Elasticsearch.
+Possible to armazenate all emails send by application in Redis, Eloquent or Elasticsearch.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Next add the service provider and the alias to `app/config/app`.
 ```php
 'providers' => [
     // ...
-    Juniorb2ss\LaravelEmailLogger\LaravelEmailLoggerServiceProvider::class,
+    juniorb2ss\LaravelEmailLogger\Providers\LaravelEmailLoggerServiceProvider::class,
 ],
 ```
 
@@ -27,11 +27,13 @@ Next add the service provider and the alias to `app/config/app`.
 Now, run this in terminal:
 
 ```bash
-php artisan vendor:publish --provider="Juniorb2ss\LaravelEmailLogger\LaravelEmailLoggerServiceProvider" --tag="migrations"
-
+php artisan vendor:publish --provider="Juniorb2ss\LaravelEmailLogger\LaravelEmailLoggerServiceProvider"
 php artisan migrate
 ```
 
 ## Configurations
 
-Later.
+Edit `app/emaillogger.php` 
+
+## To-do
+- Implementation Redis and Elasticsearch
