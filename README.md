@@ -9,7 +9,7 @@ Laravel Email Logger can be installed via [composer](http://getcomposer.org) by 
 ```json
 {
     "require": {
-        "juniorb2ss/laravel-email-logger": "1.*"
+        "juniorb2ss/laravel-email-logger": "v1.*"
     }
 }
 ```
