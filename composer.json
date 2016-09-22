@@ -6,9 +6,12 @@
     "type": "package",
     "keywords": [
         "email",
-        "phpunit",
         "laravel",
-        "log"
+        "log",
+        "elastisearch",
+        "eloquent",
+        "sns",
+        "redis"
     ],
     "license": "MIT",
     "authors": [
