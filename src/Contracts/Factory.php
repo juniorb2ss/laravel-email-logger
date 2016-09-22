@@ -3,8 +3,7 @@
 /**
  *
  */
-interface ServiceContract {
-
+interface Factory {
 	/**
 	 * Create a new manager instance.
 	 *

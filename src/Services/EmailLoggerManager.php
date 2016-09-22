@@ -1,11 +1,12 @@
 <?php namespace juniorb2ss\LaravelEmailLogger\Services;
 
-use juniorb2ss\LaravelEmailLogger\Contracts\ServiceContract;
+use InvalidArgumentException;
+use juniorb2ss\LaravelEmailLogger\Contracts\Factory as FactoryContract;
 
 /**
  *
  */
-class ServiceManager implements ServiceContract {
+class EmailLoggerManager implements FactoryContract {
 	/**
 	 * Create a new manager instance.
 	 *
@@ -60,7 +61,7 @@ class ServiceManager implements ServiceContract {
 		$config = $this->getConfig($name);
 
 		if (is_null($config)) {
-			throw new InvalidArgumentException("Broadcaster [{$name}] is not defined.");
+			throw new InvalidArgumentException("EmailLogger Service [{$name}] is not defined.");
 		}
 
 		if (isset($this->customCreators[$config['driver']])) {
@@ -92,18 +93,6 @@ class ServiceManager implements ServiceContract {
 	 * @param  array  $config
 	 * @return \Illuminate\Contracts\emaillogger\Broadcaster
 	 */
-	protected function createPusherDriver(array $config) {
-		return new PusherBroadcaster(
-			new Pusher($config['key'], $config['secret'], $config['app_id'], Arr::get($config, 'options', []))
-		);
-	}
-
-	/**
-	 * Create an instance of the driver.
-	 *
-	 * @param  array  $config
-	 * @return \Illuminate\Contracts\emaillogger\Broadcaster
-	 */
 	protected function createRedisDriver(array $config) {
 		return new RedisBroadcaster(
 			$this->app->make('redis'), Arr::get($config, 'connection')
@@ -116,10 +105,8 @@ class ServiceManager implements ServiceContract {
 	 * @param  array  $config
 	 * @return \Illuminate\Contracts\emaillogger\Broadcaster
 	 */
-	protected function createLogDriver(array $config) {
-		return new LogBroadcaster(
-			$this->app->make('Psr\Log\LoggerInterface')
-		);
+	protected function createEloquentDriver(array $config) {
+		return new EloquentService;
 	}
 
 	/**
