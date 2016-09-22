@@ -27,7 +27,7 @@ Next add the service provider and the alias to `app/config/app`.
 Now, run this in terminal:
 
 ```bash
-php artisan vendor:publish --provider="Juniorb2ss\LaravelEmailLogger\LaravelEmailLoggerServiceProvider"
+php artisan vendor:publish --provider="juniorb2ss\LaravelEmailLogger\Providers\LaravelEmailLoggerServiceProvider"
 php artisan migrate
 ```
 
