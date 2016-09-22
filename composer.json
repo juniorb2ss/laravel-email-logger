@@ -34,6 +34,11 @@
             "juniorb2ss\\LaravelEmailLogger\\": "tests"
         }
     },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
     "config": {
         "preferred-install": "dist"
     }
