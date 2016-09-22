@@ -37,3 +37,4 @@ Edit `app/emaillogger.php`
 
 ## To-do
 - Implementation Redis and Elasticsearch
+- Implementation Tests
