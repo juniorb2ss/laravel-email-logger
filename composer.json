@@ -30,11 +30,6 @@
         }
     },
     "autoload-dev": {
-        "psr-4": {
-            "juniorb2ss\\LaravelEmailLogger\\": "tests"
-        }
-    },
-    "autoload-dev": {
         "classmap": [
             "tests/TestCase.php"
         ]
