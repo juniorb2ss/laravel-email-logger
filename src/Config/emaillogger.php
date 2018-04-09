@@ -1,11 +1,12 @@
 <?php
 
 return [
-	'default' => 'eloquent',
+    'default' => 'eloquent',
 
-	'connections' => [
-		'eloquent' => [
-			'driver' => 'eloquent',
-		],
-	],
+    'connections' => [
+        'eloquent' => [
+            'driver' => 'eloquent',
+            'connection' => 'default'
+        ],
+    ],
 ];

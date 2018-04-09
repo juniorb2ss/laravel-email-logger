@@ -3,13 +3,14 @@
 /**
  *
  */
-interface ServiceContract {
+interface ServiceContract
+{
 
-	/**
-	 * Create a new manager instance.
-	 *
-	 * @param  \Illuminate\Foundation\Application  $app
-	 * @return void
-	 */
-	public function __construct($app);
+    /**
+     * Create a new manager instance.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    public function __construct($app);
 }

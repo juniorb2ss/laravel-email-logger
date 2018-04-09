@@ -7,230 +7,246 @@ use Swift_Message;
 /**
  *
  */
-class MessageParser implements Message {
-	/**
-	 * Message instance
-	 * @var Swift_Message $message
-	 */
-	protected $message;
+class MessageParser implements Message
+{
+    /**
+     * Message instance
+     * @var Swift_Message $message
+     */
+    protected $message;
 
-	/**
-	 * From Address
-	 * @var string
-	 */
-	protected $from = '';
+    /**
+     * From Address
+     * @var string
+     */
+    protected $from = '';
 
-	/**
-	 * To Address
-	 * @var string
-	 */
-	protected $to = '';
+    /**
+     * To Address
+     * @var string
+     */
+    protected $to = '';
 
-	/**
-	 * Bcc Address
-	 * @var string
-	 */
-	protected $bcc = '';
+    /**
+     * Bcc Address
+     * @var string
+     */
+    protected $bcc = '';
 
-	/**
-	 * Cc Address
-	 * @var string
-	 */
-	protected $cc = '';
+    /**
+     * Cc Address
+     * @var string
+     */
+    protected $cc = '';
 
-	/**
-	 * Priority
-	 * @var string
-	 */
-	protected $priority = '';
+    /**
+     * Priority
+     * @var string
+     */
+    protected $priority = '';
 
-	/**
-	 * Message-Id
-	 * @var string
-	 */
-	protected $messageId = '';
+    /**
+     * Message-Id
+     * @var string
+     */
+    protected $messageId = '';
 
-	/**
-	 * Sender Address
-	 * @var string
-	 */
-	protected $sender = '';
+    /**
+     * Sender Address
+     * @var string
+     */
+    protected $sender = '';
 
-	/**
-	 * Reply-To Address
-	 * @var string
-	 */
-	protected $replyTo = '';
+    /**
+     * Reply-To Address
+     * @var string
+     */
+    protected $replyTo = '';
 
-	/**
-	 * Subject
-	 * @var string
-	 */
-	protected $subject = '';
+    /**
+     * Subject
+     * @var string
+     */
+    protected $subject = '';
 
-	/**
-	 * Body
-	 * @var string
-	 */
-	protected $body = '';
+    /**
+     * Body
+     * @var string
+     */
+    protected $body = '';
 
-	/**
-	 * Date
-	 * @var \Carbon\Carbon $date
-	 */
-	protected $date;
+    /**
+     * Date
+     * @var \Carbon\Carbon $date
+     */
+    protected $date;
 
-	/**
-	 * [__construct description]
-	 * @param [type] $message [description]
-	 */
-	public function __construct(Swift_Message $message) {
-		$this->message = $message;
-	}
+    /**
+     * [__construct description]
+     * @param [type] $message [description]
+     */
+    public function __construct(Swift_Message $message)
+    {
+        $this->message = $message;
+    }
 
-	/**
-	 * Get From Address
-	 * @return string
-	 */
-	public function getFrom() {
-		$this->from = $this->getPropertyFieldBody('From');
+    /**
+     * Get From Address
+     * @return string
+     */
+    public function getFrom()
+    {
+        $this->from = $this->getPropertyFieldBody('From');
 
-		return $this->from;
-	}
+        return $this->from;
+    }
 
-	/**
-	 * @param  string  $property
-	 * @return boolean
-	 */
-	protected function hasProperty($property) {
-		$property = $this->message->getHeaders()->get($property);
+    /**
+     * @param  string  $property
+     * @return boolean
+     */
+    protected function hasProperty($property)
+    {
+        $property = $this->message->getHeaders()->get($property);
 
-		return (isset($property) && !empty($property));
-	}
+        return (isset($property) && !empty($property));
+    }
 
-	/**
-	 * Return property in email if exists.
-	 *
-	 * @param  string $property
-	 * @return string
-	 */
-	protected function getPropertyFieldBody($property) {
-		return (
-			$this->hasProperty($property) ? $this->message->getHeaders()->get($property)->getFieldBody() : null
-		);
-	}
+    /**
+     * Return property in email if exists.
+     *
+     * @param  string $property
+     * @return string
+     */
+    protected function getPropertyFieldBody($property)
+    {
+        return (
+            $this->hasProperty($property) ? $this->message->getHeaders()->get($property)->getFieldBody() : null
+        );
+    }
 
-	/**
-	 * Get Sender Address
-	 * @return string
-	 */
-	public function getSender() {
-		$this->sender = $this->getPropertyFieldBody('Sender');
+    /**
+     * Get Sender Address
+     * @return string
+     */
+    public function getSender()
+    {
+        $this->sender = $this->getPropertyFieldBody('Sender');
 
-		return $this->sender;
-	}
+        return $this->sender;
+    }
 
-	/**
-	 * Get To Address
-	 * @return string
-	 */
-	public function getTo() {
-		$this->to = $this->getPropertyFieldBody('To');
+    /**
+     * Get To Address
+     * @return string
+     */
+    public function getTo()
+    {
+        $this->to = $this->getPropertyFieldBody('To');
 
-		return $this->to;
-	}
+        return $this->to;
+    }
 
-	/**
-	 * Get Bcc Address
-	 * @return string
-	 */
-	public function getBcc() {
-		$this->bcc = $this->getPropertyFieldBody('Bcc');
+    /**
+     * Get Bcc Address
+     * @return string
+     */
+    public function getBcc()
+    {
+        $this->bcc = $this->getPropertyFieldBody('Bcc');
 
-		return $this->bcc;
-	}
+        return $this->bcc;
+    }
 
-	/**
-	 * Get Cc Address
-	 * @return string
-	 */
-	public function getCc() {
-		$this->cc = $this->getPropertyFieldBody('Cc');
+    /**
+     * Get Cc Address
+     * @return string
+     */
+    public function getCc()
+    {
+        $this->cc = $this->getPropertyFieldBody('Cc');
 
-		return $this->cc;
-	}
+        return $this->cc;
+    }
 
-	/**
-	 * Get Reply-To Address
-	 * @return string
-	 */
-	public function getReplyTo() {
-		$this->replyTo = $this->getPropertyFieldBody('Reply-To');
+    /**
+     * Get Reply-To Address
+     * @return string
+     */
+    public function getReplyTo()
+    {
+        $this->replyTo = $this->getPropertyFieldBody('Reply-To');
 
-		return $this->replyTo;
-	}
+        return $this->replyTo;
+    }
 
-	/**
-	 * Get Email Subject
-	 * @return string
-	 */
-	public function getSubject() {
-		$this->subject = $this->getPropertyFieldBody('Subject');
+    /**
+     * Get Email Subject
+     * @return string
+     */
+    public function getSubject()
+    {
+        $this->subject = $this->getPropertyFieldBody('Subject');
 
-		return $this->subject;
-	}
+        return $this->subject;
+    }
 
-	/**
-	 * Get Email Priority
-	 * @return string
-	 */
-	public function getPriority() {
-		$this->priority = $this->getPropertyFieldBody('X-Priority');
+    /**
+     * Get Email Priority
+     * @return string
+     */
+    public function getPriority()
+    {
+        $this->priority = $this->getPropertyFieldBody('X-Priority');
 
-		return $this->priority;
-	}
+        return $this->priority;
+    }
 
-	/**
-	 * Get Email String Body
-	 * @return string
-	 */
-	public function getStringBody() {
-		$this->body = $this->getMimeEntityString();
+    /**
+     * Get Email String Body
+     * @return string
+     */
+    public function getStringBody()
+    {
+        $this->body = $this->getMimeEntityString();
 
-		return $this->body;
-	}
+        return $this->body;
+    }
 
-	/**
-	 * Get Message ID
-	 * @return string
-	 */
-	public function getMessageId() {
-		$this->messageId = $this->getPropertyFieldBody('Message-Id');
+    /**
+     * Get Message ID
+     * @return string
+     */
+    public function getMessageId()
+    {
+        $this->messageId = $this->getPropertyFieldBody('Message-Id');
 
-		return $this->messageId;
-	}
+        return $this->messageId;
+    }
 
-	/**
-	 * Get date
-	 * @return \Carbon\Carbon $date
-	 */
-	public function getDate() {
-		$this->date = Carbon::parse($this->getPropertyFieldBody('Date'));
+    /**
+     * Get date
+     * @return \Carbon\Carbon $date
+     */
+    public function getDate()
+    {
+        $this->date = Carbon::parse($this->getPropertyFieldBody('Date'));
 
-		return $this->date;
-	}
+        return $this->date;
+    }
 
-	/**
-	 * Get a loggable string out of a Swiftmailer entity.
-	 * @author Alexander Shvets @neochief
-	 *
-	 * @return string
-	 */
-	protected function getMimeEntityString() {
-		$string = (string) $this->message->getHeaders() . PHP_EOL . $this->message->getBody();
-		foreach ($this->message->getChildren() as $children) {
-			$string .= PHP_EOL . PHP_EOL . $this->getMimeEntityString($children);
-		}
-		return $string;
-	}
+    /**
+     * Get a loggable string out of a Swiftmailer entity.
+     * @author Alexander Shvets @neochief
+     *
+     * @return string
+     */
+    protected function getMimeEntityString()
+    {
+        $string = (string) $this->message->getHeaders() . PHP_EOL . $this->message->getBody();
+        foreach ($this->message->getChildren() as $children) {
+            $string .= PHP_EOL . PHP_EOL . $this->getMimeEntityString($children);
+        }
+        return $string;
+    }
 }
